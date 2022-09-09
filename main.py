@@ -67,21 +67,24 @@ def game_routine(level):
         end_time = time()
         answer_time = end_time - start_time
         answer_is_correct = user_input == answer
-        insert_attempt_data(PLAYER_ID, word_id, answer_is_correct, today)
+        os.system('cls')
 
-        if answer_is_correct:
+        if answer_is_correct and answer_time < 7:
             chime.success()
-            os.system('cls')
             print('\nTrès bien !')
-            print(answer, word)
-            if answer_time < 7:
-                score += (17 - answer_time) * (1 + int(word_id) // 1000)            
-
+            score += (17 - answer_time) * (1 + int(word_id) // 1000)
+                   
+        elif answer_is_correct:
+            chime.warning()
+            print('\nVous avez mis trop de temps !')
+            answer_is_correct = False
+                            
         else:
             chime.warning()
-            os.system('cls')
             print('\nIncorrect !')
-            print(answer, word)
+
+        print(answer, word)
+        insert_attempt_data(PLAYER_ID, word_id, answer_is_correct, today)
     
     game_end_time = time()
     duration = game_end_time - game_start_time

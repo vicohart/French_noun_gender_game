@@ -1,4 +1,4 @@
-DATABASE = r'C:\Users\victorlh\OneDrive\Documents\coding\corpus_coding\Lexique383\french_nounds_gender_game\lexique.db'
+DATABASE = r'C:\Users\victorlh\OneDrive\Documents\coding\corpus_coding\Lexique383\french_nouns_gender_game\lexique.db'
 
 WORD_COLLECTION_SIZE = 100
 
